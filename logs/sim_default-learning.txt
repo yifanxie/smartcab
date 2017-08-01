@@ -1,0 +1,1102 @@
+/-----------------------------------------
+| State-action rewards from Q-Learning
+\-----------------------------------------
+
+('left', {'light': 'red', 'oncoming': 'forward', 'right': None, 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : -4.67
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': 'right', 'right': None, 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 1.40
+
+('left', {'light': 'green', 'oncoming': 'right', 'right': None, 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.36
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': None, 'right': 'left', 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'right', 'right': 'right', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': None, 'right': None, 'left': None})
+ -- action_3 : 0.70
+ -- action_2 : -9.23
+ -- action_1 : -9.15
+ -- action_0 : 1.14
+
+('left', {'light': 'red', 'oncoming': None, 'right': 'forward', 'left': 'left'})
+ -- action_3 : 0.30
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'left', 'right': 'forward', 'left': None})
+ -- action_3 : 0.52
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': None, 'right': 'left', 'left': 'left'})
+ -- action_3 : -0.03
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'right', 'right': 'right', 'left': 'forward'})
+ -- action_3 : 0.18
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': 'left', 'right': 'right', 'left': None})
+ -- action_3 : 0.99
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': 'left', 'right': 'right', 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 1.26
+
+('right', {'light': 'green', 'oncoming': None, 'right': None, 'left': None})
+ -- action_3 : 2.35
+ -- action_2 : 0.40
+ -- action_1 : 0.25
+ -- action_0 : -4.23
+
+('right', {'light': 'red', 'oncoming': 'left', 'right': 'right', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 1.71
+
+('right', {'light': 'green', 'oncoming': None, 'right': 'left', 'left': 'right'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': None, 'right': None, 'left': 'right'})
+ -- action_3 : 1.34
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': None, 'right': 'forward', 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 1.20
+
+('forward', {'light': 'red', 'oncoming': 'forward', 'right': 'left', 'left': None})
+ -- action_3 : 0.26
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'left', 'right': 'left', 'left': 'right'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': None, 'right': 'right', 'left': 'left'})
+ -- action_3 : 0.62
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'left', 'right': 'left', 'left': 'forward'})
+ -- action_3 : -9.64
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'right', 'right': 'left', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.61
+
+('right', {'light': 'green', 'oncoming': 'left', 'right': 'right', 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.97
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': 'left', 'right': 'left', 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : -4.88
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': None, 'right': 'left', 'left': None})
+ -- action_3 : 1.16
+ -- action_2 : -5.38
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': None, 'right': 'left', 'left': 'right'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 1.32
+
+('left', {'light': 'green', 'oncoming': None, 'right': None, 'left': None})
+ -- action_3 : 0.97
+ -- action_2 : 1.75
+ -- action_1 : 0.48
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': None, 'right': 'forward', 'left': 'left'})
+ -- action_3 : 1.08
+ -- action_2 : 0.00
+ -- action_1 : -20.11
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': 'left', 'right': None, 'left': None})
+ -- action_3 : 0.04
+ -- action_2 : -4.97
+ -- action_1 : 0.00
+ -- action_0 : 1.88
+
+('forward', {'light': 'green', 'oncoming': 'forward', 'right': 'forward', 'left': None})
+ -- action_3 : 0.43
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'forward', 'right': None, 'left': 'forward'})
+ -- action_3 : 0.26
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'right', 'right': 'forward', 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': 'forward', 'right': 'left', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': 'forward', 'right': 'forward', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'left', 'right': 'left', 'left': 'forward'})
+ -- action_3 : 0.18
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': 'forward', 'right': None, 'left': 'forward'})
+ -- action_3 : 1.74
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'left', 'right': None, 'left': None})
+ -- action_3 : 0.50
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 1.14
+
+('right', {'light': 'green', 'oncoming': None, 'right': 'forward', 'left': 'left'})
+ -- action_3 : 0.90
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': None, 'right': None, 'left': 'left'})
+ -- action_3 : -0.01
+ -- action_2 : -4.98
+ -- action_1 : -5.31
+ -- action_0 : 0.11
+
+('left', {'light': 'red', 'oncoming': 'right', 'right': None, 'left': 'forward'})
+ -- action_3 : -9.59
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': 'left', 'right': None, 'left': None})
+ -- action_3 : 0.58
+ -- action_2 : -7.85
+ -- action_1 : -7.67
+ -- action_0 : 1.53
+
+('right', {'light': 'red', 'oncoming': 'right', 'right': None, 'left': 'left'})
+ -- action_3 : 0.85
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.27
+
+('forward', {'light': 'red', 'oncoming': None, 'right': 'forward', 'left': 'forward'})
+ -- action_3 : -10.30
+ -- action_2 : 0.00
+ -- action_1 : -20.48
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': 'left', 'right': None, 'left': 'left'})
+ -- action_3 : 0.55
+ -- action_2 : 0.00
+ -- action_1 : -4.84
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': 'forward', 'right': 'right', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'right', 'right': None, 'left': 'left'})
+ -- action_3 : 0.56
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': None, 'right': 'forward', 'left': 'left'})
+ -- action_3 : 0.34
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': None, 'right': 'left', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : -4.62
+ -- action_0 : 1.29
+
+('forward', {'light': 'green', 'oncoming': None, 'right': 'forward', 'left': None})
+ -- action_3 : 0.29
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : -2.62
+
+('right', {'light': 'green', 'oncoming': 'left', 'right': None, 'left': None})
+ -- action_3 : 1.89
+ -- action_2 : 0.00
+ -- action_1 : 1.16
+ -- action_0 : 0.39
+
+('right', {'light': 'red', 'oncoming': 'right', 'right': None, 'left': 'right'})
+ -- action_3 : 0.00
+ -- action_2 : -19.88
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'right', 'right': 'right', 'left': None})
+ -- action_3 : 0.43
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': 'right', 'right': None, 'left': 'forward'})
+ -- action_3 : 0.67
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': None, 'right': 'forward', 'left': 'forward'})
+ -- action_3 : 1.14
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : -2.84
+
+('left', {'light': 'green', 'oncoming': 'forward', 'right': 'forward', 'left': None})
+ -- action_3 : 0.18
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'forward', 'right': 'forward', 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.96
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': None, 'right': None, 'left': 'left'})
+ -- action_3 : 0.69
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': 'right', 'right': None, 'left': None})
+ -- action_3 : 1.02
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': None, 'right': None, 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 1.73
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'right', 'right': 'right', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : -4.55
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': 'forward', 'right': None, 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 1.39
+
+('right', {'light': 'green', 'oncoming': 'left', 'right': None, 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.48
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': 'left', 'right': 'forward', 'left': 'forward'})
+ -- action_3 : -10.41
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': 'left', 'right': 'left', 'left': None})
+ -- action_3 : 1.10
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': 'left', 'right': 'forward', 'left': None})
+ -- action_3 : 0.56
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'left', 'right': 'forward', 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.41
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': 'forward', 'right': 'forward', 'left': 'right'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': None, 'right': 'left', 'left': 'forward'})
+ -- action_3 : -9.85
+ -- action_2 : -20.49
+ -- action_1 : -20.17
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': None, 'right': 'forward', 'left': None})
+ -- action_3 : 0.75
+ -- action_2 : -30.31
+ -- action_1 : -19.51
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'left', 'right': None, 'left': None})
+ -- action_3 : 0.82
+ -- action_2 : 0.00
+ -- action_1 : -0.30
+ -- action_0 : 0.42
+
+('forward', {'light': 'red', 'oncoming': None, 'right': 'right', 'left': 'left'})
+ -- action_3 : 0.68
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': 'left', 'right': None, 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : -20.30
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'right', 'right': 'left', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.08
+ -- action_0 : -2.21
+
+('right', {'light': 'green', 'oncoming': None, 'right': None, 'left': 'right'})
+ -- action_3 : 1.23
+ -- action_2 : 0.00
+ -- action_1 : 0.22
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': None, 'right': None, 'left': 'right'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : -5.40
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': None, 'right': 'forward', 'left': None})
+ -- action_3 : 1.16
+ -- action_2 : 0.43
+ -- action_1 : 0.00
+ -- action_0 : -2.72
+
+('right', {'light': 'red', 'oncoming': None, 'right': 'right', 'left': 'left'})
+ -- action_3 : 0.30
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'right', 'right': 'left', 'left': 'forward'})
+ -- action_3 : 0.33
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': None, 'right': None, 'left': 'forward'})
+ -- action_3 : -14.61
+ -- action_2 : -19.92
+ -- action_1 : -30.02
+ -- action_0 : 1.09
+
+('right', {'light': 'green', 'oncoming': 'left', 'right': None, 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': None, 'right': None, 'left': 'left'})
+ -- action_3 : 1.16
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': None, 'right': 'right', 'left': None})
+ -- action_3 : 0.27
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': None, 'right': 'forward', 'left': 'forward'})
+ -- action_3 : 0.20
+ -- action_2 : 0.41
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'left', 'right': 'left', 'left': None})
+ -- action_3 : 0.73
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': None, 'right': 'left', 'left': 'forward'})
+ -- action_3 : -9.96
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'left', 'right': 'right', 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': None, 'right': None, 'left': None})
+ -- action_3 : 0.67
+ -- action_2 : 0.30
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'left', 'right': 'left', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'forward', 'right': None, 'left': None})
+ -- action_3 : 0.31
+ -- action_2 : -7.40
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'left', 'right': None, 'left': 'right'})
+ -- action_3 : 0.75
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': None, 'right': None, 'left': 'forward'})
+ -- action_3 : -10.19
+ -- action_2 : -19.76
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'right', 'right': None, 'left': None})
+ -- action_3 : 0.99
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'forward', 'right': 'left', 'left': None})
+ -- action_3 : 0.59
+ -- action_2 : 0.00
+ -- action_1 : 0.57
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': None, 'right': 'right', 'left': 'forward'})
+ -- action_3 : 0.09
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': None, 'right': 'right', 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : -20.41
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': 'left', 'right': 'right', 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : -19.96
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': None, 'right': 'left', 'left': 'forward'})
+ -- action_3 : 0.61
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'forward', 'right': None, 'left': None})
+ -- action_3 : 0.74
+ -- action_2 : 0.00
+ -- action_1 : 0.16
+ -- action_0 : -2.21
+
+('forward', {'light': 'red', 'oncoming': None, 'right': 'left', 'left': None})
+ -- action_3 : 0.11
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': 'left', 'right': 'left', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.86
+
+('forward', {'light': 'red', 'oncoming': None, 'right': 'forward', 'left': 'right'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': 'left', 'right': 'left', 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': None, 'right': 'left', 'left': None})
+ -- action_3 : 0.86
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'right', 'right': 'forward', 'left': None})
+ -- action_3 : 0.74
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'left', 'right': None, 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.44
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': 'left', 'right': 'forward', 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'left', 'right': 'left', 'left': 'left'})
+ -- action_3 : 0.23
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': 'left', 'right': 'forward', 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': None, 'right': None, 'left': None})
+ -- action_3 : 1.14
+ -- action_2 : -7.12
+ -- action_1 : -9.27
+ -- action_0 : 0.26
+
+('forward', {'light': 'red', 'oncoming': None, 'right': 'right', 'left': None})
+ -- action_3 : 0.04
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': 'left', 'right': None, 'left': 'left'})
+ -- action_3 : -0.10
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': None, 'right': 'left', 'left': 'left'})
+ -- action_3 : 0.86
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'forward', 'right': 'right', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : -2.27
+
+('right', {'light': 'red', 'oncoming': None, 'right': 'right', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'left', 'right': None, 'left': 'right'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': None, 'right': 'left', 'left': None})
+ -- action_3 : 0.46
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': None, 'right': None, 'left': 'right'})
+ -- action_3 : -0.11
+ -- action_2 : 0.00
+ -- action_1 : -5.11
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'left', 'right': 'right', 'left': 'forward'})
+ -- action_3 : -10.07
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': None, 'right': 'forward', 'left': 'forward'})
+ -- action_3 : -9.67
+ -- action_2 : -19.58
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'forward', 'right': None, 'left': None})
+ -- action_3 : 0.20
+ -- action_2 : -10.22
+ -- action_1 : 1.91
+ -- action_0 : -2.64
+
+('left', {'light': 'green', 'oncoming': 'forward', 'right': None, 'left': 'right'})
+ -- action_3 : -0.03
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'left', 'right': None, 'left': 'right'})
+ -- action_3 : 0.49
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': None, 'right': None, 'left': None})
+ -- action_3 : 0.64
+ -- action_2 : -4.73
+ -- action_1 : -4.70
+ -- action_0 : 1.43
+
+('right', {'light': 'red', 'oncoming': 'left', 'right': 'forward', 'left': None})
+ -- action_3 : 1.03
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'left', 'right': None, 'left': 'left'})
+ -- action_3 : 0.79
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': None, 'right': None, 'left': 'right'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'right', 'right': None, 'left': 'right'})
+ -- action_3 : -0.01
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'left', 'right': None, 'left': 'left'})
+ -- action_3 : -0.30
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': 'forward', 'right': 'left', 'left': 'left'})
+ -- action_3 : 1.62
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': 'forward', 'right': None, 'left': 'forward'})
+ -- action_3 : -9.92
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': None, 'right': 'forward', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 1.03
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'right', 'right': None, 'left': 'left'})
+ -- action_3 : 0.06
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': None, 'right': 'forward', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : -19.77
+ -- action_1 : 0.00
+ -- action_0 : 0.55
+
+('left', {'light': 'green', 'oncoming': None, 'right': 'forward', 'left': 'forward'})
+ -- action_3 : 0.31
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': None, 'right': 'right', 'left': None})
+ -- action_3 : 0.14
+ -- action_2 : -7.32
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'right', 'right': 'forward', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': 'forward', 'right': None, 'left': None})
+ -- action_3 : 0.61
+ -- action_2 : 0.00
+ -- action_1 : 0.96
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': 'forward', 'right': None, 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': 'forward', 'right': None, 'left': None})
+ -- action_3 : 0.69
+ -- action_2 : -4.55
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'left', 'right': 'right', 'left': None})
+ -- action_3 : 0.31
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'left', 'right': 'forward', 'left': 'left'})
+ -- action_3 : 0.71
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': None, 'right': None, 'left': 'forward'})
+ -- action_3 : 1.85
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': None, 'right': 'left', 'left': 'forward'})
+ -- action_3 : 0.42
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': None, 'right': 'forward', 'left': None})
+ -- action_3 : 0.71
+ -- action_2 : -19.75
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': None, 'right': 'left', 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 2.02
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': None, 'right': None, 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 1.23
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': 'forward', 'right': None, 'left': None})
+ -- action_3 : 1.24
+ -- action_2 : -4.70
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'left', 'right': 'right', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 1.18
+
+('left', {'light': 'green', 'oncoming': None, 'right': 'right', 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'left', 'right': 'forward', 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': None, 'right': 'right', 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': None, 'right': 'left', 'left': 'forward'})
+ -- action_3 : -9.71
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': None, 'right': None, 'left': 'forward'})
+ -- action_3 : 0.73
+ -- action_2 : 0.00
+ -- action_1 : 0.74
+ -- action_0 : -2.70
+
+('left', {'light': 'red', 'oncoming': None, 'right': 'right', 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : -20.29
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': None, 'right': None, 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 1.16
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'forward', 'right': 'left', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 1.15
+
+('forward', {'light': 'green', 'oncoming': 'right', 'right': None, 'left': 'right'})
+ -- action_3 : 0.33
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'forward', 'right': 'left', 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : -2.74
+
+('left', {'light': 'green', 'oncoming': 'right', 'right': 'left', 'left': 'forward'})
+ -- action_3 : -0.05
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': 'right', 'right': None, 'left': 'left'})
+ -- action_3 : 1.12
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'right', 'right': None, 'left': 'left'})
+ -- action_3 : 0.17
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'right', 'right': None, 'left': 'right'})
+ -- action_3 : 0.40
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': None, 'right': None, 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : -4.74
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': None, 'right': None, 'left': 'right'})
+ -- action_3 : 0.11
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': None, 'right': 'left', 'left': 'right'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'left', 'right': 'forward', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 1.22
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'left', 'right': 'right', 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'left', 'right': None, 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': None, 'right': 'left', 'left': 'right'})
+ -- action_3 : 0.21
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': 'left', 'right': 'left', 'left': None})
+ -- action_3 : 0.00
+ -- action_2 : 1.85
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'green', 'oncoming': None, 'right': 'right', 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : 0.83
+ -- action_1 : 0.00
+ -- action_0 : -2.94
+
+('left', {'light': 'red', 'oncoming': 'left', 'right': 'forward', 'left': None})
+ -- action_3 : -0.22
+ -- action_2 : -20.05
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': None, 'right': 'right', 'left': None})
+ -- action_3 : 1.15
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': 'left', 'right': None, 'left': 'right'})
+ -- action_3 : 0.00
+ -- action_2 : -4.63
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'left', 'right': None, 'left': 'left'})
+ -- action_3 : -0.17
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': None, 'right': 'left', 'left': None})
+ -- action_3 : 1.33
+ -- action_2 : 0.00
+ -- action_1 : 0.20
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': 'forward', 'right': 'left', 'left': None})
+ -- action_3 : 0.36
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'red', 'oncoming': 'right', 'right': 'left', 'left': 'left'})
+ -- action_3 : 0.54
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('left', {'light': 'red', 'oncoming': 'left', 'right': None, 'left': 'forward'})
+ -- action_3 : -9.92
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'red', 'oncoming': None, 'right': None, 'left': 'forward'})
+ -- action_3 : 0.00
+ -- action_2 : -19.62
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': None, 'right': 'right', 'left': None})
+ -- action_3 : 0.85
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
+('right', {'light': 'green', 'oncoming': None, 'right': 'left', 'left': 'left'})
+ -- action_3 : 0.00
+ -- action_2 : 0.00
+ -- action_1 : 0.35
+ -- action_0 : 0.00
+
+('forward', {'light': 'green', 'oncoming': 'left', 'right': 'left', 'left': 'left'})
+ -- action_3 : 0.44
+ -- action_2 : 0.00
+ -- action_1 : 0.00
+ -- action_0 : 0.00
+
