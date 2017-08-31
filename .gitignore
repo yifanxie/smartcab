@@ -1,0 +1,7 @@
+backups/*
+*.csv
+*.zip
+*.gz
+*.model
+*.h5
+*.gif

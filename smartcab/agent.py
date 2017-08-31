@@ -94,9 +94,16 @@ class LearningAgent(Agent):
         ########### 
         ## TO DO ##
         ###########
+        # 29/08/2017 - change this function to return the max Q value among all the actions
+        # previously this function return the action with the max Q value.
+
         # Calculate the maximum Q-value of all actions for a given state
         state_str=str(state)
-        maxQ = max(self.Q[state_str].iteritems(), key=operator.itemgetter(1))[0]
+
+        # max_value=max(self.Q[state_str].values)
+        # max_keys=[k for k, v in self.Q[state_str].items() if v == max_value]
+        # maxQ = max(self.Q[state_str].iteritems(), key=operator.itemgetter(1))[0]
+        maxQ=max(self.Q[state_str].values)
         return maxQ 
 
 
