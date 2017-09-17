@@ -94,16 +94,9 @@ class LearningAgent(Agent):
         ########### 
         ## TO DO ##
         ###########
-        # 29/08/2017 - change this function to return the max Q value among all the actions
-        # previously this function return the action with the max Q value.
-
         # Calculate the maximum Q-value of all actions for a given state
         state_str=str(state)
-
-        # max_value=max(self.Q[state_str].values)
-        # max_keys=[k for k, v in self.Q[state_str].items() if v == max_value]
-        # maxQ = max(self.Q[state_str].iteritems(), key=operator.itemgetter(1))[0]
-        maxQ=max(self.Q[state_str].values)
+        maxQ = max(self.Q[state_str].iteritems(), key=operator.itemgetter(1))[0]
         return maxQ 
 
 
@@ -119,10 +112,10 @@ class LearningAgent(Agent):
         state_str=str(state)
         if state_str not in self.Q:
             self.Q[state_str] = {}
-            self.Q[state_str]['action_0'] = 0
-            self.Q[state_str]['action_1'] = 0
-            self.Q[state_str]['action_2'] = 0
-            self.Q[state_str]['action_3'] = 0
+            self.Q[state_str]['None'] = 0
+            self.Q[state_str]['forward'] = 0
+            self.Q[state_str]['left'] = 0
+            self.Q[state_str]['right'] = 0
 
         print('number of state is {}'.format(len(self.Q)))
         return
@@ -159,8 +152,14 @@ class LearningAgent(Agent):
                 print('choose random action is {}'.format(action))
                 print(self.num_random_action, self.num_Q_action)
             else:
-                action_id=int(self.get_maxQ(self.state)[-1])
-                action=self.valid_actions[action_id]
+                #todo need to fix this place so that action_id is captured correctly
+                print(self.get_maxQ(self.state))
+                # action_id=int(self.get_maxQ(self.state)[-1])
+
+                action=self.get_maxQ(self.state)
+
+                if action=='None': action=None
+                # action=self.valid_actions[action_id]
                 self.num_Q_action+=1
                 print('choose action is {}'.format(action))
                 print(self.num_Q_action, self.num_Q_action)
@@ -179,16 +178,18 @@ class LearningAgent(Agent):
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
         state_str=str(state)
 
-        act_id=0
-        for act in self.valid_actions:
-            if act == action:
-                break
-            else:
-                act_id+=1
-        print('giving reward {:.6} to action {} for current state'.format(reward, self.valid_actions[act_id]))
+        # act_id=0
+        # for act in self.valid_actions:
+        #     if act == action:
+        #         break
+            # else:
+                # act_id+=1
+        if action is None: action=str(action)
+        # print('giving reward {:.6} to action {} for current state'.format(reward, self.valid_actions[act_id]))
+        print('giving reward {:.6} to action {} for current state'.format(reward, action))
 
-        action_str='action_'+str(act_id)
-        self.Q[state_str][action_str]=(1-self.alpha)*self.Q[state_str][action_str]+self.alpha*reward
+        # action_str='action_'+str(act_id)
+        self.Q[state_str][action]=(1-self.alpha)*self.Q[state_str][action]+self.alpha*reward
 
         return
 
@@ -241,7 +242,7 @@ def run():
     #   log_metrics  - set to True to log trial and simulation results to /logs
     #   optimized    - set to True to change the default log file name
     # sim = Simulator(env, update_delay=2, log_metrics=True, display=True)
-    sim = Simulator(env, update_delay=0.01, log_metrics=True, display=False, optimized=True)
+    sim = Simulator(env, update_delay=0.01, log_metrics=True, display=False, optimized=False)
 
     ##############
     # Run the simulator
