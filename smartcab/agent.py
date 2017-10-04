@@ -57,10 +57,10 @@ class LearningAgent(Agent):
             print('current trial is {}'.format(self.current_trial))
             if self.learning:
                 if self.epsilon>=0:
-                    self.epsilon=self.epsilon-0.05
+                    # self.epsilon=self.epsilon-0.05
                     # self.epsilon=self.decay_factor**self.current_trial
                     # self.epsilon=np.exp(-self.decay_factor*self.current_trial)
-                    # self.epsilon=np.cos(self.decay_factor*self.current_trial)
+                    self.epsilon=np.cos(self.decay_factor*self.current_trial)
                     if self.epsilon<0.000001: self.epsilon=0.0001
                     print('epsilon is {:.5}'.format(self.epsilon))
         return None
@@ -153,25 +153,14 @@ class LearningAgent(Agent):
                 print('choose random action is {}'.format(action))
                 print(self.num_random_action, self.num_Q_action)
             else:
-                # todo this part, the maxQ function should just return the maximun Q value
-                # todo the tie break shall take place in this following part of the code
-
-                print('state Q values are', self.Q[str(self.state)])
-                print('max Q is:', self.get_maxQ(self.state))
-
                 maxQ=self.get_maxQ(self.state)
-
                 # perform randomise tie breaking if there are more than one action with maxQ value
-                max_keys = []
                 max_keys = [x for x, value in self.Q[str(self.state)].iteritems() if value == maxQ]
-
                 if len(max_keys)>1:
                     action = choice(max_keys)
                 else:
                     action = max_keys[0]
-    
                 if action=='None': action=None
-                # action=self.valid_actions[action_id]
                 self.num_Q_action+=1
                 print('choose action is {}'.format(action))
                 print(self.num_Q_action)
@@ -254,7 +243,7 @@ def run():
     #   log_metrics  - set to True to log trial and simulation results to /logs
     #   optimized    - set to True to change the default log file name
     # sim = Simulator(env, update_delay=2, log_metrics=True, display=True)
-    sim = Simulator(env, update_delay=0.01, log_metrics=True, display=False, optimized=False)
+    sim = Simulator(env, update_delay=0.01, log_metrics=True, display=False, optimized=True)
 
     ##############
     # Run the simulator
