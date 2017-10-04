@@ -96,8 +96,9 @@ class LearningAgent(Agent):
         ###########
         # Calculate the maximum Q-value of all actions for a given state
         state_str=str(state)
-        maxQ = max(self.Q[state_str].iteritems(), key=operator.itemgetter(1))[0]
-        return maxQ 
+        # maxQ = max(self.Q[state_str].iteritems(), key=operator.itemgetter(1))[0]
+        maxQ=max(self.Q[state_str].values())
+        return maxQ
 
 
     def createQ(self, state):
@@ -152,17 +153,28 @@ class LearningAgent(Agent):
                 print('choose random action is {}'.format(action))
                 print(self.num_random_action, self.num_Q_action)
             else:
-                #todo need to fix this place so that action_id is captured correctly
-                print(self.get_maxQ(self.state))
-                # action_id=int(self.get_maxQ(self.state)[-1])
+                # todo this part, the maxQ function should just return the maximun Q value
+                # todo the tie break shall take place in this following part of the code
 
-                action=self.get_maxQ(self.state)
+                print('state Q values are', self.Q[str(self.state)])
+                print('max Q is:', self.get_maxQ(self.state))
 
+                maxQ=self.get_maxQ(self.state)
+
+                # perform randomise tie breaking if there are more than one action with maxQ value
+                max_keys = []
+                max_keys = [x for x, value in self.Q[str(self.state)].iteritems() if value == maxQ]
+
+                if len(max_keys)>1:
+                    action = choice(max_keys)
+                else:
+                    action = max_keys[0]
+    
                 if action=='None': action=None
                 # action=self.valid_actions[action_id]
                 self.num_Q_action+=1
                 print('choose action is {}'.format(action))
-                print(self.num_Q_action, self.num_Q_action)
+                print(self.num_Q_action)
         return action
 
 
