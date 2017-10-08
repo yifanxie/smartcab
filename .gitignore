@@ -5,5 +5,5 @@ backups/*
 *.model
 *.h5
 *.gif
-.idea/*
-.ipynb_checkpoints/*
+# .idea/*
+# .ipynb_checkpoints/*
