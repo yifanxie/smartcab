@@ -243,7 +243,7 @@ def run():
     #   log_metrics  - set to True to log trial and simulation results to /logs
     #   optimized    - set to True to change the default log file name
     # sim = Simulator(env, update_delay=2, log_metrics=True, display=True)
-    sim = Simulator(env, update_delay=0.01, log_metrics=True, display=False, optimized=True)
+    sim = Simulator(env, update_delay=2, log_metrics=True, display=True, optimized=True)
 
     ##############
     # Run the simulator
