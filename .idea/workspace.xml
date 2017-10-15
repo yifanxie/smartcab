@@ -4,8 +4,11 @@
     <bookmark url="file://$PROJECT_DIR$/smartcab/agent.py" line="235" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bc1b431-f948-4477-aef5-25a857b2eb82" name="Default" comment="smart cab 1st rework finished - 15/10/2017">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="6bc1b431-f948-4477-aef5-25a857b2eb82" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Running-agent.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Running.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/smartcab_bak.ipynb" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -338,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508085905835</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="smart cab 1st rework finished - 15/10/2017">
+      <created>1508086458800</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1508086458800</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
